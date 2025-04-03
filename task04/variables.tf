@@ -1,3 +1,24 @@
+variable "subscription_id" {
+  description = "The Azure subscription ID"
+  type        = string
+}
+
+variable "tenant_id" {
+  description = "The Azure tenant ID"
+  type        = string
+}
+
+variable "client_id" {
+  description = "The Azure client ID (service principal app ID)"
+  type        = string
+}
+
+variable "client_secret" {
+  description = "The Azure client secret (service principal password)"
+  type        = string
+  sensitive   = true
+}
+
 variable "resource_group_name" {
   description = "The name of the resource group"
   type        = string
