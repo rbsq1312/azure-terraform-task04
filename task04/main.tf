@@ -88,7 +88,7 @@ resource "azurerm_network_interface" "nic" {
   resource_group_name = azurerm_resource_group.rg.name
 
   ip_configuration {
-    name                          = "internal"
+    name                          = var.subnet_name
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.pip.id
@@ -130,8 +130,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
     sku       = "24_04-lts"
     version   = "latest"
   }
-
-
 
   tags = {
     Creator = var.creator_tag
